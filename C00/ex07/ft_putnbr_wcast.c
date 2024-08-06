@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_wcast.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: patricia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 17:07:58 by patricia          #+#    #+#             */
-/*   Updated: 2024/08/06 18:31:17 by patricia         ###   ########.fr       */
+/*   Created: 2024/08/06 18:33:48 by patricia          #+#    #+#             */
+/*   Updated: 2024/08/06 18:40:10 by patricia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putnbr(int nb)
 {
-	char	lastdigit;
-
-	lastdigit = 0;
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -29,17 +26,12 @@ void	ft_putnbr(int nb)
 	}
 	if (nb >= 10)
 		ft_putnbr(nb / 10);
-	lastdigit = nb % 10 + '0';
-	write(1, &lastdigit, 1);
+	write(1, &(char){nb % 10 + '0'}, 1);
 }
-/*
+
 int	main(void)
 {
-	int	nb;
-
-	nb = 42;
-	ft_putnbr(nb);
+	ft_putnbr(-763);
 	write(1, "\n", 1);
 	return (0);
 }
-*/
